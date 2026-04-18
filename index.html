@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeRacer Modern</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-anim"></div>
+    <main class="game-container">
+        <header>
+            <h1 class="logo">Type<span>Racer</span></h1>
+            <div class="controls">
+                <select id="difficulty" class="glass-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="stats-panel glass-panel">
+            <div class="stat-box">
+                <span class="stat-label">WPM</span>
+                <span class="stat-value" id="wpm">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Accuracy</span>
+                <span class="stat-value" id="accuracy">100%</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="time">0s</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Errors</span>
+                <span class="stat-value" id="errors">0</span>
+            </div>
+        </section>
+
+        <section class="typing-panel glass-panel" id="typing-panel">
+            <div id="countdown" class="countdown hidden">3</div>
+            <!-- Interactive display text -->
+            <div id="text-display" class="text-display">
+                Welcome to TypeRacer. Choose your difficulty and press Start to race!
+            </div>
+            <!-- Progress bar underneath the text -->
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+        </section>
+
+        <!-- Hidden input to capture keystrokes reliably -->
+        <input type="text" id="hidden-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" disabled>
+
+        <div class="actions">
+            <button id="start-btn" class="glass-btn primary-btn">Start Race</button>
+            <button id="reset-btn" class="glass-btn disabled" disabled>Reset</button>
+        </div>
+    </main>
+
+    <!-- Overlay for results -->
+    <div id="results-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <h2>Race Finished!</h2>
+            <div class="final-stats">
+                <div class="f-stat"><span id="final-wpm">0</span> WPM</div>
+                <div class="f-stat"><span id="final-acc">100%</span> Accuracy</div>
+                <div class="f-stat"><span id="final-time">0s</span> Time</div>
+                <div class="f-stat"><span id="final-errors">0</span> Errors</div>
+                <div class="f-stat score-stat"><span id="final-score" class="score-highlight">0</span> Score</div>
+            </div>
+            <div id="final-rank" class="rank-message">TITLE: Beginner</div>
+            <button id="play-again-btn" class="glass-btn primary-btn">Race Again</button>
+        </div>
+    </div>
+
+    <!-- Load our JS logic -->
+    <script src="script.js"></script>
+</body>
+</html>
